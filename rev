@@ -1,0 +1,37 @@
+
+
+ ListNode* rev(ListNode* head) 
+ {
+  
+
+ ListNode* curr=head ;
+
+ ListNode* nxt =NULL;
+
+ ListNode* prev=NULL;
+
+while(curr!=NULL)
+{
+    nxt=curr->next ;
+    curr->next=prev ;
+    curr= nxt ;
+} ;
+return prev ;
+
+}
+struct ListNode* rotateRight(struct ListNode* head, int k) 
+{ 
+ head = rev(head) ;
+ ListNode* ptr =head ;   
+ for(int i=0 ;i<=k;i++)
+ {
+ptr=ptr->next ;
+
+ } ;
+
+ 
+
+ head->next=rev(ptr);
+
+ return head ;
+}
